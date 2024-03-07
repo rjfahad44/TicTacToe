@@ -4,13 +4,6 @@ A Tic Tac Toe game Android app for playing in real time with two devices. Using 
 </p>
 </br>
 
-<p align="center">
-  <a href="https://opensource.org/licenses/MIT"><img alt="License" src="https://img.shields.io/badge/License-MIT-yellow.svg"/></a>
-  <a href="https://android-arsenal.com/api?level=24"><img alt="API" src="https://img.shields.io/badge/API-24%2B-brightgreen.svg?style=flat"/></a>
-  <a href="https://github.com/waleska404"><img alt="Profile" src="https://img.shields.io/badge/GitHub-waleska404-purple"/></a> 
-  <a href="https://github.com/waleska404/algorithms-visualizer"><img alt="Profile" src="https://img.shields.io/github/stars/waleska404/tic-tac-toe"/></a> 
-</p>
-
 <h3 align="center">🚧 IN PROGRESS 🚧</h2>
 
 ## Screenshots
