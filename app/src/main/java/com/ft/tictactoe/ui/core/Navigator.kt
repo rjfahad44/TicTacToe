@@ -48,8 +48,8 @@ fun ContentWrapper(navigationController: NavHostController) {
 }
 
 sealed class Routes(val route: String) {
-    object Home : Routes("home")
-    object Game : Routes("game/{gameId}/{userId}/{owner}") {
+    data object Home : Routes("home")
+    data object Game : Routes("game/{gameId}/{userId}/{owner}") {
         fun createRoute(gameId: String, userId: String, owner: Boolean) =
             "game/$gameId/$userId/$owner"
     }

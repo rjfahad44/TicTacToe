@@ -1,8 +1,10 @@
 package com.ft.tictactoe.ui.model
 
+import androidx.annotation.Keep
 import com.ft.tictactoe.network.model.GameData
 import com.ft.tictactoe.network.model.PlayerData
 
+@Keep
 data class GameUIModel(
     val board: List<PlayerType>,
     val player1: PlayerUIModel,
@@ -23,6 +25,7 @@ data class GameUIModel(
     }
 }
 
+@Keep
 data class PlayerUIModel(
     val userId: String,
     val playerType: PlayerType
@@ -36,6 +39,7 @@ data class PlayerUIModel(
 }
 
 
+@Keep
 sealed class PlayerType(
     val id: Int,
     val symbol: String

@@ -2,7 +2,7 @@
     <string name="app_name">TicTacToe</string>
     <string name="app_title">Tic Tac Toe</string>
     <string name="logo_content_description">tic tac toe app logo</string>
-    <string name="create_game">Create Game</string>
+    <string name="start_game">Start Game</string>
     <string name="join_game">Join Game</string>
     <string name="congratulations">Congratulations!</string>
     <string name="you_lose">You lose :(</string>

@@ -5,8 +5,13 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.snapshots
 import com.ft.tictactoe.network.model.GameData
 import com.ft.tictactoe.ui.model.GameUIModel
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.getValue
+import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
@@ -26,12 +31,32 @@ class FirebaseService @Inject constructor(
         return newGame.gameId.orEmpty()
     }
 
+//    fun joinToGame(gameId: String): Flow<GameUIModel?> {
+//        return reference.database.reference.child("$PATH/$gameId").snapshots.map { dataSnapshot ->
+//            Log.d("TICK_TAC_TOE","joinToGame : ${dataSnapshot.getValue(GameData::class.java)}")
+//            dataSnapshot.getValue(GameData::class.java)?.toUIModel()
+//        }
+//    }
+
     fun joinToGame(gameId: String): Flow<GameUIModel?> {
-        return reference.database.reference.child("$PATH/$gameId").snapshots.map { dataSnapshot ->
-            Log.d("TICK_TAC_TOE","joinToGame : ${dataSnapshot.getValue(GameData::class.java)}")
-            dataSnapshot.getValue(GameData::class.java)?.toUIModel()
+        return callbackFlow {
+            val databaseReference = reference.database.reference.child("$PATH/$gameId")
+
+            val listener = object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    trySend(dataSnapshot.getValue(GameData::class.java)?.toUIModel()).isSuccess
+                }
+
+                override fun onCancelled(databaseError: DatabaseError) {
+                    close(databaseError.toException())
+                }
+            }
+
+            databaseReference.addValueEventListener(listener)
+            awaitClose { databaseReference.removeEventListener(listener) }
         }
     }
+
 
     fun updateGame(gameData: GameData) {
         if (gameData.gameId != null) {

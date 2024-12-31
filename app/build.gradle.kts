@@ -3,22 +3,22 @@ plugins {
     alias(libs.plugins.jetbrainsKotlinAndroid)
     id ("androidx.navigation.safeargs")
     id("com.google.devtools.ksp")
-    id("kotlin-kapt")
     alias(libs.plugins.daggerHiltAndroid)
     alias(libs.plugins.googleServicesAndroid)
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
     namespace = "com.ft.tictactoe"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.ft.tictactoe"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
-
+        multiDexEnabled = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
@@ -27,7 +27,8 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -45,7 +46,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.4"
+        kotlinCompilerExtensionVersion = "1.5.14"
     }
     packaging {
         resources {

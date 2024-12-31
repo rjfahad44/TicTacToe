@@ -1,10 +1,12 @@
 package com.ft.tictactoe.network.model
 
+import androidx.annotation.Keep
 import com.ft.tictactoe.ui.model.GameUIModel
 import com.ft.tictactoe.ui.model.PlayerType
 import com.ft.tictactoe.ui.model.PlayerUIModel
 import java.util.Calendar
 
+@Keep
 data class GameData(
     val board: List<Int?>? = null,
     val gameId: String? = null,
@@ -24,6 +26,7 @@ data class GameData(
 }
 
 
+@Keep
 data class PlayerData(
     val userId: String? = Calendar.getInstance().timeInMillis.hashCode().toString(),
     val playerType: Int? = null,

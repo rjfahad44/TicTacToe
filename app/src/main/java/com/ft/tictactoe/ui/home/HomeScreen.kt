@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
@@ -66,7 +65,7 @@ fun HomeScreen(
 @Composable
 fun Header() {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-        // logo
+
         Box(
             modifier = Modifier
                 .size(200.dp)
@@ -82,7 +81,6 @@ fun Header() {
             )
         }
 
-        // title
         Text(
             text = stringResource(id = R.string.app_name),
             fontSize = 32.sp,
@@ -129,11 +127,11 @@ fun CreateGame(
 ) {
     TicTacPrimaryButton(
         onClick = { onCreateGame() },
-        text = stringResource(id = R.string.create_game)
+        text = stringResource(id = R.string.start_game)
     )
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
+
 @Composable
 fun JoinGame(
     onJoinGame: (String) -> Unit,
@@ -147,13 +145,14 @@ fun JoinGame(
         OutlinedTextField(
             value = text,
             onValueChange = { text = it },
-            colors = TextFieldDefaults.textFieldColors(
+            colors = TextFieldDefaults.colors(
                 focusedTextColor = PrimaryBlack,
                 unfocusedTextColor = PrimaryGrey,
                 cursorColor = PrimaryBlack,
                 focusedIndicatorColor = SecondaryGrey,
                 unfocusedIndicatorColor = PrimaryGrey,
-                containerColor = LightGrey
+                focusedContainerColor = LightGrey,
+                unfocusedContainerColor = LightGrey.copy(alpha = 0.5f)
             )
         )
         Spacer(modifier = Modifier.height(8.dp))

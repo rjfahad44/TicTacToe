@@ -1,14 +1,14 @@
 {
   "project_info": {
-    "project_number": "1036717277232",
-    "firebase_url": "https://tictactoe-d4716-default-rtdb.europe-west1.firebasedatabase.app",
-    "project_id": "tictactoe-d4716",
-    "storage_bucket": "tictactoe-d4716.appspot.com"
+    "project_number": "726321214515",
+    "firebase_url": "https://tictactoe-multiplayer-7d7f4-default-rtdb.firebaseio.com",
+    "project_id": "tictactoe-multiplayer-7d7f4",
+    "storage_bucket": "tictactoe-multiplayer-7d7f4.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1036717277232:android:4a880c8bb86555d7376df5",
+        "mobilesdk_app_id": "1:726321214515:android:80fa10be1a665975341f46",
         "android_client_info": {
           "package_name": "com.ft.tictactoe"
         }
@@ -16,7 +16,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyB25Rfid9Nh9SQ17t5wFo28O_bzoGITfy0"
+          "current_key": "AIzaSyBMEHKABarWOg823r4pzoAolzorbFmdhyk"
         }
       ],
       "services": {
